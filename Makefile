@@ -6,9 +6,6 @@ CFLAGS  = -Wall -Werror -std=c99
 
 default: bin/board
 
-test: ./bin/board-test
-	./bin/board-test
-
 ./bin/board: ./build/main.o ./build/board.o ./build/check_str.o bin test
 		$(CC) $(CFLAGS) -o ./bin/board ./build/main.o ./build/board.o ./build/check_str.o -lm
 
@@ -21,8 +18,6 @@ test: ./bin/board-test
 ./build/check_str.o: ./src/check_str.c ./src/check_str.h build
 		$(CC) $(CFLAGS) -o ./build/check_str.o -c ./src/check_str.c -lm
 
-bin/board-test: ./build/main_test.o ./build/board.o ./build/check_str.o bin
-	$(CC) $(CFLAGS) ./build/main_test.o ./build/board.o ./build/check_str.o -o bin/board-test -lm
 
 build:
 	mkdir build
