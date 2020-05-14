@@ -1,14 +1,13 @@
+#include "board.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "board.h"
-
 
 void help_print();
 void info_print();
 int board_main();
 
-int main() {
-//    int egg = 0;
+int main()
+{
     system("clear");
     char q;
     info_print();
@@ -16,9 +15,9 @@ int main() {
     if (q == 's') {
         board_main();
         return 0;
-    } else if (q == 'q'){
+    } else if (q == 'q') {
         system("clear");
-        printf("%sСпасибо за игру!%s\n",RED, RESET);
+        printf("%sСпасибо за игру!%s\n", RED, RESET);
         return 0;
     } else {
         system("clear");
@@ -30,12 +29,14 @@ int main() {
 char places[6];
 int exitt = 0;
 
-int board_main() {
+int board_main()
+{
     system("clear");
     print_new_board();
     while (exitt == 0) {
         help_print();
-        printf("          Напишите координаты фигуры и \n          куда её поставить. Например e2-e4\n");
+        printf("          Напишите координаты фигуры и \n          куда её "
+               "поставить. Например e2-e4\n");
         printf("\t%s  Ход:\n\t\t ", CYAN);
         scanf("%s", places);
         printf("%s", RESET);
@@ -45,7 +46,7 @@ int board_main() {
             board_main();
         } else if (places[0] == 'q') {
             system("clear");
-            printf("%sСпасибо за игру!%s\n",RED, RESET);
+            printf("%sСпасибо за игру!%s\n", RED, RESET);
             return 0;
         }
         system("clear");
@@ -63,20 +64,19 @@ int board_main() {
     return 0;
 }
 
-                    //    scanf("%d", &egg);
-                    //    if (egg == 1) {
-                    //    printf("Andrey Shiryaew");
-
-void info_print() {
-
+void info_print()
+{
     system("clear");
+
     printf("%s"
-    "\t       ███████╗███╗  ███╗████████╗████████╗████████╗\n"
-    "\t      ███╔════╝███║  ███║███╔════╝███╔════╝███╔════╝\n"
-    "\t      ███║     █████████║██████╗  ████████╗████████╗\n"
-    "\t      ███║     ███╔══███║███╔══╝  ╚════███║╚════███║\n"
-    "\t      ╚███████╗███║  ███║████████╗████████║████████║\n"
-    "\t       ╚══════╝╚══╝  ╚══╝╚═══════╝╚═══════╝╚═══════╝\n\n%s", GREEN, RESET);
+           "\t       ███████╗███╗  ███╗████████╗████████╗████████╗\n"
+           "\t      ███╔════╝███║  ███║███╔════╝███╔════╝███╔════╝\n"
+           "\t      ███║     █████████║██████╗  ████████╗████████╗\n"
+           "\t      ███║     ███╔══███║███╔══╝  ╚════███║╚════███║\n"
+           "\t      ╚███████╗███║  ███║████████╗████████║████████║\n"
+           "\t       ╚══════╝╚══╝  ╚══╝╚═══════╝╚═══════╝╚═══════╝\n\n%s",
+           GREEN,
+           RESET);
 
 
     printf("%s\t\n         Выберите действие\n\n%s", GREEN, RESET);
@@ -84,7 +84,8 @@ void info_print() {
     printf("\t    %s(q) Выход\n", CYAN);
 }
 
-void help_print() {
+void help_print()
+{
     printf("\t%s     (r)Вернуться\n\n%s", GRAY, RESET);
 }
-
+                  
